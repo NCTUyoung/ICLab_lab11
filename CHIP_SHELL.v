@@ -20,6 +20,11 @@ output [7:0] out_image;
 
 
 wire 		C_clk, BUF_CLK;
+wire 		C_rst_n;
+wire 		C_in_valid;
+wire [7:0]  C_in_image;
+wire  	    C_out_valid;
+wire [7:0]  C_out_image;
 //TA has already defined for you
 //LBP module  
 
@@ -30,7 +35,7 @@ LBP LBP(
 	.in_image(C_in_image),
 	
 	.out_valid(C_out_valid),
-	.out_image(out_image)
+	.out_image(C_out_image)
 );
 
 CLKBUFX20 buf0(.A(C_clk),.Y(BUF_CLK));
@@ -58,7 +63,7 @@ P8C O_OUT_5    ( .A(C_out_image[5]), .P(out_image[5]), .ODEN(1'b1), .OCEN(1'b1),
 P8C O_OUT_6    ( .A(C_out_image[6]), .P(out_image[6]), .ODEN(1'b1), .OCEN(1'b1), .PU(1'b1), .PD(1'b0), .CEN(1'b1), .CSEN(1'b0));
 P8C O_OUT_7    ( .A(C_out_image[7]), .P(out_image[7]), .ODEN(1'b1), .OCEN(1'b1), .PU(1'b1), .PD(1'b0), .CEN(1'b1), .CSEN(1'b0));
 //I/O power 3.3V pads x? (DVDD + DGND)
-//I/O power 3.3V pads x? (DVDD + DGND)
+
 PVDDR VDDP0 ();
 PVSSR GNDP0 ();
 PVDDR VDDP1 ();
