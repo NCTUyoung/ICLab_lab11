@@ -28,7 +28,7 @@ wire [7:0]  C_out_image;
 //TA has already defined for you
 //LBP module  
 
-LBP LBP(                                                                                                                                                                    
+LBP LBP(                                                                                                                                                                     
 	.clk(BUF_CLK),
 	.rst_n(C_rst_n),
 	.in_valid(C_in_valid),
@@ -72,8 +72,7 @@ PVDDR VDDP2 ();
 PVSSR GNDP2 ();
 PVDDR VDDP3 ();
 PVSSR GNDP3 ();
-PVDDR VDDP4 ();
-PVSSR GNDP4 ();
+
 //Core poweri 1.8V pads x? (VDD + GND)
 
 PVDDC VDDC0 ();
@@ -84,9 +83,11 @@ PVDDC VDDC2 ();
 PVSSC GNDC2 ();
 PVDDC VDDC3 ();
 PVSSC GNDC3 ();
-PVDDC VDDC4 ();
-PVSSC GNDC4 ();
 
+PCORNER PCNR0();
+PCORNER PCNR1();
+PCORNER PCNR2();
+PCORNER PCNR3();
 
 endmodule
 
